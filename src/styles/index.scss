@@ -4,6 +4,7 @@
 	max-width: 1320px;
 	min-height: 100%;
 	margin: 0 auto;
+	padding: 0 5px;
 }
 
 .companyTitle {
@@ -25,5 +26,76 @@
 	&:active {
 		background-color: gray;
 		transform: scale(0.95);
+	}
+}
+
+h5 {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+h6 {
+	font-size: 20px;
+	font-weight: lighter;
+	color: rgba(0, 0, 0, 0.788);
+}
+
+.main-page {
+	display: flex;
+	flex-direction: column;
+	gap: 100px;
+	margin: 20px 0px;
+
+	&__first-section {
+		margin-top: 30px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		align-items: center;
+
+		&__left-block {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			width: 25%;
+		}
+
+		&__right-block {
+			width: 65%;
+		}
+	}
+
+	&__second-section {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+		align-items: center;
+		width: 100%;
+
+		&__grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+			justify-content: space-between;
+			row-gap: 30px;
+			width: 100%;
+			&__element {
+				width: 300px;
+				text-align: left;
+			}
+		}
+	}
+
+	&__third-section {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		align-items: center;
+		width: 100%;
+
+		border-top: 1px solid gray;
+		border-bottom: 1px solid gray;
+		padding: 24px;
 	}
 }

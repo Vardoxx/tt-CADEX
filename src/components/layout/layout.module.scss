@@ -1,14 +1,34 @@
-.container {
+.header {
 	width: 100%;
 	height: 96px;
 	box-shadow: 0px 0.5px 3px black;
+	background-color: white;
+	position: sticky;
+	top: 0;
+	left: 0;
+
+	&__flex {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		justify-content: space-between;
+	}
 }
 
-.flex {
-	display: flex;
+.footer {
 	width: 100%;
-	height: 100%;
-	align-items: center;
-	justify-content: space-between;
-	padding: 0px 5px 0px 5px;
+	height: 100px;
+	background-color: white;
+	position: sticky;
+	bottom: 0;
+	left: 0;
+
+	&__flex {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }
