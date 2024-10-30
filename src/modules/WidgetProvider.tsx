@@ -48,6 +48,8 @@ const WidgetProvider = () => {
 			onOk={handleOk}
 			onCancel={handleCancel}
 			footer={false}
+			width='max-content'
+			height='max-content'
 		>
 			<WidgetSwitcher />
 		</Modal>

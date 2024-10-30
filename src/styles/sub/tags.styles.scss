@@ -1,0 +1,90 @@
+h5 {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+h6 {
+	font-size: 20px;
+	font-weight: lighter;
+	color: rgba(0, 0, 0, 0.788);
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'] {
+	width: 100%;
+	padding: 8px 12px;
+	font-size: 16px;
+	border: none;
+	border-radius: 8px;
+	background-color: #f0f0f0;
+	transition: background-color 0.3s ease;
+	border: 1px solid rgba(0, 0, 0, 0.226);
+}
+
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='email']:focus {
+	outline: none;
+	background-color: #e0e0e0;
+}
+
+input[type='text']::placeholder,
+input[type='password']::placeholder,
+input[type='email']::placeholder {
+	color: #999;
+}
+
+input[type='text']:not(:placeholder-shown) + label,
+input[type='password']:not(:placeholder-shown) + label,
+input[type='email']:not(:placeholder-shown) + label,
+input[type='text']:focus + label,
+input[type='password']:focus + label,
+input[type='email']:focus + label {
+	position: absolute;
+	top: -7px;
+	left: 12px;
+	font-size: 14px;
+	color: #333;
+	transition: all 0.3s ease;
+}
+
+textarea,
+textarea,
+textarea {
+	width: 100%;
+	padding: 8px 12px;
+	font-size: 16px;
+	border: none;
+	border-radius: 8px;
+	background-color: #f0f0f0;
+	transition: background-color 0.3s ease;
+	border: 1px solid rgba(0, 0, 0, 0.226);
+}
+
+textarea:focus,
+textarea:focus,
+textarea:focus {
+	outline: none;
+	background-color: #e0e0e0;
+}
+
+textarea::placeholder,
+textarea::placeholder,
+textarea::placeholder {
+	color: #999;
+}
+
+textarea:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label,
+textarea:focus + label,
+textarea:focus + label,
+textarea:focus + label {
+	position: absolute;
+	top: -7px;
+	left: 12px;
+	font-size: 14px;
+	color: #333;
+	transition: all 0.3s ease;
+}
