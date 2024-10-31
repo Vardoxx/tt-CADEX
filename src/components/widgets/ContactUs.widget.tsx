@@ -1,24 +1,21 @@
+import { useMutation } from '@tanstack/react-query'
 import { Controller, SubmitHandler, useForm, useWatch } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { emailRegex, lettersRegex } from '../../constants/regex.constants'
+import { orderService } from '../../services/order.service'
 import { closeWidget } from '../../store/slices/widget.slice'
+import { IOrderReq } from '../../styles/order.types'
 import Btn from '../ui/Btn'
 import Input from '../ui/Input'
 import TextArea from '../ui/TextArea'
-
-interface IFormInput {
-	name: string
-	email: string
-	message: string
-}
 
 const ContactUsWidget = () => {
 	const dispatch = useDispatch()
 	const {
 		control,
 		handleSubmit,
-		formState: { errors, isValid },
-	} = useForm<IFormInput>({
+		formState: { errors },
+	} = useForm<IOrderReq>({
 		defaultValues: {
 			name: '',
 			email: '',
@@ -27,8 +24,16 @@ const ContactUsWidget = () => {
 		mode: 'onSubmit',
 	})
 
-	const onSubmit: SubmitHandler<IFormInput> = data => {
-		console.log(data)
+	const { mutate } = useMutation({
+		mutationKey: ['order'],
+		mutationFn: (data: IOrderReq) => orderService.create(data),
+		onSuccess() {
+			dispatch(closeWidget())
+		},
+	})
+
+	const onSubmit: SubmitHandler<IOrderReq> = data => {
+		mutate(data)
 	}
 
 	const messageLength = useWatch({
@@ -107,11 +112,7 @@ const ContactUsWidget = () => {
 					{messageLength} / 300
 				</p>
 			</div>
-			<Btn
-				title='submit'
-				type='submit'
-				onClick={() => (isValid ? dispatch(closeWidget()) : null)}
-			/>
+			<Btn title='submit' type='submit' />
 		</form>
 	)
 }
