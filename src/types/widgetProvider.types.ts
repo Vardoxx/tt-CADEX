@@ -1,4 +1,4 @@
-export type TWidgetProvider = 'AboutUs' | 'Jig'
+export type TWidgetProvider = 'AboutUs'
 
 export interface IWidgetProvider {
 	widget: TWidgetProvider

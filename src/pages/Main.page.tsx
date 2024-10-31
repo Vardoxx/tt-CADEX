@@ -42,7 +42,7 @@ const MainPage = () => {
 						</li>
 					))}
 				</ul>
-				<Btn title='Contact Us' onClick={() => open('Jig')} />
+				<Btn title='Contact Us' onClick={() => open('AboutUs', 'Submit Us')} />
 			</section>
 
 			<section className='main-page__third-section'>

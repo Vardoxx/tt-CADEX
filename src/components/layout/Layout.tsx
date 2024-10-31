@@ -11,7 +11,7 @@ const Layout = () => {
 			<header className={s.header}>
 				<nav className={`wrapper ${s.header__flex}`}>
 					<CompanyTitle />
-					<Btn title='Contact Us' onClick={() => open('AboutUs')} />
+					<Btn title='Contact Us' onClick={() => open('AboutUs', 'About Us')} />
 				</nav>
 			</header>
 			<div
@@ -24,6 +24,7 @@ const Layout = () => {
 			>
 				<Outlet />
 			</div>
+
 			<footer className={s.footer}>
 				<div className={`wrapper ${s.footer__flex}`}>
 					<CompanyTitle /> 2024

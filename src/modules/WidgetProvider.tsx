@@ -11,9 +11,14 @@ const WidgetProvider = () => {
 
 	const widgetName = useSelector((state: RootState) => state.widget.widgetName)
 
+	const widgetTitle = useSelector(
+		(state: RootState) => state.widget.widgetTitle
+	)
+
 	const widgetStat = useSelector(
 		(state: RootState) => state.widget.widgetStatus
 	)
+
 	const [isWidgetName, setIsWidgetName] = useState<TWidgetProvider | ''>('')
 
 	useEffect(() => {
@@ -43,7 +48,7 @@ const WidgetProvider = () => {
 
 	return (
 		<Modal
-			title='Basic Modal'
+			title={widgetTitle}
 			open={isWidgetOpen}
 			onOk={handleOk}
 			onCancel={handleCancel}
