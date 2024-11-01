@@ -2,8 +2,7 @@ class URL {
 	root = '/'
 
 	MAIN = `${this.root}`
-	CONTACT_US = `${this.root}contactUs`
-	SUBMISSION = `${this.CONTACT_US}/submission`
+	SUBMISSION = `${this.root}submission`
 }
 
 export const URL_PAGE = new URL()

@@ -1,8 +1,10 @@
 import { useMutation } from '@tanstack/react-query'
 import { Controller, SubmitHandler, useForm, useWatch } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
+import { URL_PAGE } from '../../cfg/url.cfg'
 import { emailRegex, lettersRegex } from '../../constants/regex.constants'
 import { orderService } from '../../services/order.service'
+import { exportRes } from '../../store/slices/submission.slice'
 import { closeWidget } from '../../store/slices/widget.slice'
 import { IOrderReq } from '../../styles/order.types'
 import Btn from '../ui/Btn'
@@ -11,6 +13,7 @@ import TextArea from '../ui/TextArea'
 
 const ContactUsWidget = () => {
 	const dispatch = useDispatch()
+
 	const {
 		control,
 		handleSubmit,
@@ -27,8 +30,10 @@ const ContactUsWidget = () => {
 	const { mutate } = useMutation({
 		mutationKey: ['order'],
 		mutationFn: (data: IOrderReq) => orderService.create(data),
-		onSuccess() {
+		onSuccess(res) {
 			dispatch(closeWidget())
+			dispatch(exportRes(res.data.message))
+			window.location.href = URL_PAGE.SUBMISSION
 		},
 	})
 

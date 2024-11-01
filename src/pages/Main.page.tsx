@@ -5,6 +5,7 @@ import { useOpenWidget } from '../hooks/useOpenWidget'
 
 const MainPage = () => {
 	const [open] = useOpenWidget()
+
 	const VOptions = {
 		height: '350',
 		width: '760',
@@ -47,7 +48,7 @@ const MainPage = () => {
 
 			<section className='main-page__third-section'>
 				<h5>Less important title</h5>
-				<Btn title='Contact Us' />
+				<Btn title='Contact Us' onClick={() => open('AboutUs', 'Submit Us')} />
 			</section>
 		</div>
 	)

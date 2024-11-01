@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import submissionReducer from './slices/submission.slice'
 import widgetReducer from './slices/widget.slice'
 
 const reducer = combineReducers({
 	widget: widgetReducer,
+	submission: submissionReducer,
 })
 
 export const store = configureStore({
