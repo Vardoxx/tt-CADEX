@@ -2,7 +2,8 @@ class URL {
 	root = '/'
 
 	MAIN = `${this.root}`
-	SUBMISSION = `${this.root}submission`
+	SUBMIT = `${this.root}submit`
+	SUBMIT_AFTER = `${this.root}submitAfter`
 }
 
 export const URL_PAGE = new URL()

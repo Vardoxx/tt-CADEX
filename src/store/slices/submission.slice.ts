@@ -14,8 +14,6 @@ export const submissionSlice = createSlice({
 	reducers: {
 		exportRes: (state, action) => {
 			state.message = action.payload
-
-			localStorage.setItem('submissionRes', state.message)
 		},
 		deleteRes: state => {
 			state.message = ''

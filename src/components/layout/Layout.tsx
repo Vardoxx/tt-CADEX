@@ -1,17 +1,18 @@
-import { Outlet } from 'react-router-dom'
-import { useOpenWidget } from '../../hooks/useOpenWidget'
+import { Outlet, useNavigate } from 'react-router-dom'
+import { URL_PAGE } from '../../cfg/url.cfg'
 import CompanyTitle from '../CompanyTitle'
 import Btn from '../ui/Btn'
 import s from './layout.module.scss'
 
 const Layout = () => {
-	const [open] = useOpenWidget()
+	const navigate = useNavigate()
+
 	return (
 		<>
 			<header className={s.header}>
 				<nav className={`wrapper ${s.header__flex}`}>
 					<CompanyTitle />
-					<Btn title='Contact Us' onClick={() => open('AboutUs', 'About Us')} />
+					<Btn title='Contact Us' onClick={() => navigate(URL_PAGE.SUBMIT)} />
 				</nav>
 			</header>
 			<div

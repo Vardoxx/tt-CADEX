@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react'
 
-const Submission = () => {
+const SubmitAfterPage = () => {
 	const [isMessage, setMessage] = useState<string>('')
 
 	const message = localStorage.getItem('submissionRes')
 
 	useEffect(() => {
 		setMessage(message!)
-		console.log(isMessage)
 	}, [message, isMessage])
 
 	return (
-		<div className='submission-page'>
-			<h5>{isMessage}</h5>
+		<div className='submit-after-page'>
+			<h5 className='submit-after-page__message'>{isMessage}</h5>
 		</div>
 	)
 }
 
-export default Submission
+export default SubmitAfterPage

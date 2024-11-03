@@ -49,9 +49,9 @@ input[type='email']:focus + label {
 	transition: all 0.3s ease;
 }
 
-textarea,
-textarea,
-textarea {
+.textarea,
+.textarea,
+.textarea {
 	width: 100%;
 	padding: 8px 12px;
 	font-size: 16px;
@@ -62,25 +62,25 @@ textarea {
 	border: 1px solid rgba(0, 0, 0, 0.226);
 }
 
-textarea:focus,
-textarea:focus,
-textarea:focus {
+.textarea:focus,
+.textarea:focus,
+.textarea:focus {
 	outline: none;
 	background-color: #e0e0e0;
 }
 
-textarea::placeholder,
-textarea::placeholder,
-textarea::placeholder {
+.textarea::placeholder,
+.textarea::placeholder,
+.textarea::placeholder {
 	color: #999;
 }
 
-textarea:not(:placeholder-shown) + label,
-textarea:not(:placeholder-shown) + label,
-textarea:not(:placeholder-shown) + label,
-textarea:focus + label,
-textarea:focus + label,
-textarea:focus + label {
+.textarea:not(:placeholder-shown) + label,
+.textarea:not(:placeholder-shown) + label,
+.textarea:not(:placeholder-shown) + label,
+.textarea:focus + label,
+.textarea:focus + label,
+.textarea:focus + label {
 	position: absolute;
 	top: -7px;
 	left: 12px;

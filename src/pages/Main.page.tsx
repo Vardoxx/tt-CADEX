@@ -1,18 +1,12 @@
-import YouTube from 'react-youtube'
+import { useNavigate } from 'react-router-dom'
+import { URL_PAGE } from '../cfg/url.cfg'
+
 import Btn from '../components/ui/Btn'
+import VideoPlayer from '../components/Video'
 import { gridItems } from '../constants/elements.constants'
-import { useOpenWidget } from '../hooks/useOpenWidget'
 
 const MainPage = () => {
-	const [open] = useOpenWidget()
-
-	const VOptions = {
-		height: '350',
-		width: '760',
-		playerVars: {
-			autoplay: 1,
-		},
-	}
+	const navigate = useNavigate()
 
 	return (
 		<div className='main-page'>
@@ -26,7 +20,7 @@ const MainPage = () => {
 					</h6>
 				</div>
 				<div className='main-page__first-section__right-block'>
-					<YouTube videoId='dQw4w9WgXcQ' opts={VOptions} />
+					<VideoPlayer videoId='dQw4w9WgXcQ' />
 				</div>
 			</section>
 
@@ -43,12 +37,11 @@ const MainPage = () => {
 						</li>
 					))}
 				</ul>
-				<Btn title='Contact Us' onClick={() => open('AboutUs', 'Submit Us')} />
+				<Btn title='Contact Us' onClick={() => navigate(URL_PAGE.SUBMIT)} />
 			</section>
-
 			<section className='main-page__third-section'>
 				<h5>Less important title</h5>
-				<Btn title='Contact Us' onClick={() => open('AboutUs', 'Submit Us')} />
+				<Btn title='Contact Us' onClick={() => navigate(URL_PAGE.SUBMIT)} />
 			</section>
 		</div>
 	)
