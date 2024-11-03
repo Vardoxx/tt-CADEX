@@ -1,7 +1,7 @@
 import YouTube from 'react-youtube'
 import { IVideo } from '../types/responseVideo.types'
 
-const VideoPlayer: React.FC<IVideo> = ({ videoId }) => {
+const VideoPlayer: React.FC<IVideo> = ({ videoId, className }) => {
 	const opts = {
 		height: '390',
 		width: '640',
@@ -12,7 +12,7 @@ const VideoPlayer: React.FC<IVideo> = ({ videoId }) => {
 	}
 
 	return (
-		<div className='video-container'>
+		<div className={className}>
 			<YouTube videoId={videoId} opts={opts} />
 		</div>
 	)

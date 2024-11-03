@@ -9,7 +9,7 @@ import Btn from '../components/ui/Btn'
 import { emailRegex, lettersRegex } from '../constants/regex.constants'
 import { orderService } from '../services/order.service'
 import { deleteRes, exportRes } from '../store/slices/submission.slice'
-import { closeWidget } from '../store/slices/widget.slice'
+
 import { IOrderReq } from '../styles/order.types'
 
 const SubmitPage = () => {
@@ -34,7 +34,6 @@ const SubmitPage = () => {
 		mutationKey: ['order'],
 		mutationFn: (data: IOrderReq) => orderService.create(data),
 		onSuccess(res) {
-			dispatch(closeWidget())
 			dispatch(deleteRes())
 			dispatch(exportRes(res.data.message))
 			navigate(URL_PAGE.SUBMIT_AFTER)

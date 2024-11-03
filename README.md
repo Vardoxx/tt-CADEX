@@ -1,50 +1,76 @@
-# React + TypeScript + Vite
+# Используемые технологии:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Front-end:
 
-Currently, two official plugins are available:
+  - TS
+  - SCSS(BEM)
+  - React(Vite)
+  - React-router-dom
+  - Redux
+  - Antd
+  - React-hook-form
+  - React-YouTube
+  - Axios
+  - React Query
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Back-end:](https://github.com/Vardoxx/tt-cadex-server)
+  - TS
+  - Nest
+  - PostgreSQL
+  - Prisma
+  - Class-validator
+  - Class-transformer
 
-## Expanding the ESLint configuration
+# Основные подробности о разработке:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Для типизации и создания ООП обстановки использовал <u>TypeScript</u>.
+- Для быстрой и строгой вёрстки использовал <u>BEM</u> методологию с <u>SCSS</u> препроцессором.
+- В качестве сборщика выбрал <u>Vite</u>, потому-что не заметил что в ТЗ было разрешено использовать фреймворк <u>Next</u>.
+- Для UI выбрал Antd, т.к считаю что это лучшая UI библиотека из-за её гибкости, красоты, удобства, подробной документации с живым примером.
+- Для валидации форм выбрал <u>React-hook-form</u>, простая, гибкая, удобная библиотека с отличной документацией.
+- Для построения запросов(написания сервисов) выбрал <u>Axios</u> + <u>React Query(tanstack)</u>, для большей компактности по сравнению с <u>RTK Query</u>, т.к проект небольшой.
 
-- Configure the top-level `parserOptions` property like this:
+- Для управлением db выбрал <u>PostgreSQL</u> из-за удобного десктоп приложения <u>pgAdmin4</u>.
+- В качестве фреймворка выбрал <u>Nest</u>, из-за его удобного CLI, структуру <u>Angular</u> и огромного выбора нужных библиотек.
+- Для ORM выбрал <u>Prisma</u>, крайне удобная штука позволяющая заранее спроектировать таблицы и редактировать их в по ходу разработки, не бегая по файлам в поисках Entity.
+
+# Инструкции по использованию:
+
+- Client
 
 ```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+  git clone https://github.com/Vardoxx/tt-CADEX.git
+  cd tt-CADEX
+  yarn
+  yarn start
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Server
 
 ```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+  git clone https://github.com/Vardoxx/tt-cadex-server.git
+  cd tt-cadex-server
+  yarn
+  yarn start:dev
+```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+# ВАЖНО!!!
+
+- В серверной части в .env файле находится шаблон конфигурации по которому надо его настроить, в качестве СУБД использовать <u>PostgreSQL</u>. Далее написать в консоль 'yarn prisma db push'
+
+- Если после запроса с клиента браузер ругается на CORS, то перейдите в серверную часть /src/main.ts и вставьте данный фрагмент кода:
+
+```js
+import { NestFactory } from '@nestjs/core'
+import { AppModule } from './app.module'
+
+async function bootstrap() {
+	const app = await NestFactory.create(AppModule)
+	app.setGlobalPrefix('api')
+	app.listen(3006)
+	app.enableCors({
+		origin: true,
+	})
+}
+bootstrap()
 ```

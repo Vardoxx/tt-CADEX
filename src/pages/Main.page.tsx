@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { URL_PAGE } from '../cfg/url.cfg'
 
 import Btn from '../components/ui/Btn'
-import VideoPlayer from '../components/Video'
+import VideoPlayer from '../components/VideoPlayer'
 import { gridItems } from '../constants/elements.constants'
 
 const MainPage = () => {
@@ -20,7 +20,7 @@ const MainPage = () => {
 					</h6>
 				</div>
 				<div className='main-page__first-section__right-block'>
-					<VideoPlayer videoId='dQw4w9WgXcQ' />
+					<VideoPlayer videoId='dQw4w9WgXcQ' className='video-container' />
 				</div>
 			</section>
 
